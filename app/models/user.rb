@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  has_many :posts
+  has_many :posts, dependent: :destroy
+  has_many :likes, dependent: :destroy
   validates :name, presence: true,
                   length: {maximum: 20,
                             message: "最大文字数は20文字です"},
