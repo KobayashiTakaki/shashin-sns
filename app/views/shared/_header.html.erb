@@ -1,0 +1,17 @@
+<nav id="top-nav" class="navbar-expand fixed-top navbar-light bg-white border-bottom">
+  <div class="row m-2 justify-content-between">
+    <div class="col">
+      <%= link_to "Shasin SNS", root_url, class: "navbar-brand"%>
+    </div>
+    <div class="col">
+      <ul class="nav navbar-nav justify-content-end">
+        <% if logged_in? %>
+          <li class="nav-item"><%= link_to "ログアウト", logout_path, method: :post, class: "nav-link" %></li>
+        <% else %>
+          <li class="nav-item"><%= link_to "ログイン", login_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "ユーザ登録", signup_path, class: "nav-link" %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

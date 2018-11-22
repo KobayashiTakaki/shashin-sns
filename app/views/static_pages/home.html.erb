@@ -1,15 +1,11 @@
-<h1>Welcome to ShasinSNS!</h1>
+<h1>Welcome to Shasin SNS!</h1>
 
 <% if logged_in? %>
   <div>
     <p>Hello, <%= current_user.name %>!</p>
   </div>
-  <%= link_to "ログアウト", logout_path, method: :post %>
 <% else %>
   <div>
-    <%= link_to "ログイン", login_path %>
-  </div>
-  <div>
-    <%= link_to "ユーザ登録", signup_path %>
+
   </div>
 <% end %>
