@@ -1,11 +1,13 @@
 <h1>Welcome to Shasin SNS!</h1>
 
 <% if logged_in? %>
-  <div>
-    <p>Hello, <%= current_user.name %>!</p>
-  </div>
+  <%= link_to new_post_path, id: "new-post" do %>
+     <i class="fas fa-plus fa-2x"></i>
+  <% end %>
+  <%= render 'shared/feed' %>
 <% else %>
   <div>
-
+    <%= link_to "ログイン", login_path, class: "btn btn-secondary" %>
+    <%= link_to "ユーザ登録", signup_path, class: "btn btn-secondary" %>
   </div>
 <% end %>

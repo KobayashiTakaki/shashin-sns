@@ -6,6 +6,32 @@ body {
   padding-top: 60px;
 }
 
+/* home */
+#new-post {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  margin: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 3px solid #333333;
+  text-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+  color: #333333;
+  text-decoration: none;
+  text-align:center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* feed */
+.posts {
+
+}
+
 /* debug */
 .debug {
   margin: 40px;
