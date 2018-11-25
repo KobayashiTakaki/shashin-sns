@@ -1,6 +1,8 @@
-<div id="post-<%= post.id %> class="post mt-3">
-  <div>
-  <%= post.user.name %>
+<div id="post-<%= post.id %>" class="post">
+  <div class="user-info col py-3">
+    <span class="user-name px-2"><%= post.user.name %></span>
   </div>
   <%= image_tag post.picture.url %>
+  <div class="comments">
+  </div>
 </div>

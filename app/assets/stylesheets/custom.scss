@@ -18,6 +18,7 @@ body {
 /* new-post button */
 #new-post {
   position: fixed;
+  z-index: 2;
   right: 50px;
   bottom: 50px;
   margin: 0;
@@ -37,9 +38,32 @@ body {
 }
 
 /* feed */
-.posts {
-
+#feed-items {
+  padding-top: 60px;
 }
+
+#feed-items .post {
+  margin-bottom: 60px;
+  border: #{$border-thin};
+  border-radius: 3px;
+  background-color: #ffffff;
+}
+
+#feed-items .post img {
+  width: 100%;
+}
+
+#feed-items .post .user-name {
+  font-weight: 600;
+}
+
+@include media-breakpoint-down(xs) {
+  #feed-items .post {
+    border: none;
+    background-color: inherit;
+  }
+}
+
 
 /* debug */
 .debug {
