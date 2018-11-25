@@ -4,14 +4,21 @@
       <%= link_to "Shasin SNS", root_url, class: "navbar-brand"%>
     </div>
     <div class="col">
-      <ul class="nav navbar-nav justify-content-end">
+      <div class="dropdown float-right">
+        <button class="btn text-dark" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="far fa-lg fa-user"></i>
+        </button>
         <% if logged_in? %>
-          <li class="nav-item"><%= link_to "ログアウト", logout_path, method: :post, class: "nav-link" %></li>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <%= link_to "ログアウト", logout_path, method: :post, class: "dropdown-item" %>
+          </div>
         <% else %>
-          <li class="nav-item"><%= link_to "ログイン", login_path, class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to "ユーザ登録", signup_path, class: "nav-link" %></li>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <%= link_to "ログイン", login_path, class: "dropdown-item" %>
+            <%= link_to "ユーザ登録", signup_path, class: "dropdown-item" %>
+          </div>
         <% end %>
-      </ul>
+      </div>
     </div>
   </div>
 </nav>
