@@ -57,8 +57,14 @@ body {
   font-weight: 600;
 }
 
+/* feed for mobile */
 @include media-breakpoint-down(xs) {
+  #feed-items {
+    padding-top: 0;
+  }
+
   #feed-items .post {
+    margin-bottom: 15px;
     border: none;
     background-color: inherit;
   }
