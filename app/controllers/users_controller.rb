@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user
+
   def index
     @users = User.all
   end
@@ -19,11 +21,18 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   def update
-
+    @user = current_user
+    if @user.update_attributes(user_params)
+      flash[:success] = "保存しました"
+      redirect_to root_url
+    else
+      flash.now[:danger] = "保存に失敗しました"
+      render 'edit'
+    end
   end
 
   def destroy
