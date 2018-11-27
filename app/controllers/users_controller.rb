@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user
+  before_action :logged_in_user, except: [:new, :create]
 
   def index
     @users = User.all
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   private
     def user_params
       params.require(:user).permit(
-        :name, :password, :password_confirmation
+        :name, :email, :display_name, :password, :password_confirmation
       )
     end
 end
