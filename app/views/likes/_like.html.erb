@@ -1,0 +1,6 @@
+<%= form_with(model: current_user.likes.build, url: posts_like_path) do |f| %>
+  <%= hidden_field_tag :post_id, post.id %>
+  <%= button_tag(type: "submit", class: "like-button") do %>
+    <i class="far fa-2x fa-heart"></i>
+  <% end %>
+<% end %>

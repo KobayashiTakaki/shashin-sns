@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   belongs_to :user
   validates :user_id, presence: true
   validate  :picture_size
+  has_many :likes, dependent: :destroy
 
   private
     # アップロードされた画像のサイズをバリデーションする

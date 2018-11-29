@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   post '/logout', to: 'sessions#destroy'
   patch '/accounts/edit', to: 'users#update'
 
+  post '/posts/like', to: 'likes#create'
+  post '/posts/unlike', to: 'likes#destroy'
+
   resources :users, only: [:index, :create, :update, :destroy]
   resources :posts, only: [:new, :create, :show, :edit, :update, :destroy]
 
@@ -25,8 +28,8 @@ end
 # GET /posts/:id => Posts#show
 # GET /posts/new => Posts#new
 # POST /posts => Posts#create
-# POST /posts/:id/comment => Posts#comment
-# POST /posts/:id/like => Posts#like
+# POST /posts/:id/comment => Comments#create
+# POST /posts/:id/like => Likes#create
 #
 #
 # GET /:user_name => Users#show

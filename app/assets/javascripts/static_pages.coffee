@@ -1,3 +1,5 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$ ->
+  $(".post-menu .like-button").click (e) ->
+    Rails.fire($(this).parent()[0], 'submit')
+    console.log('submit')
+    $(this).attr("disabled", true)

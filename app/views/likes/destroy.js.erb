@@ -1,0 +1,1 @@
+$("#like-form-<%= @post.id %>").html("<%= escape_javascript(render('likes/like', post: @post)) %>");

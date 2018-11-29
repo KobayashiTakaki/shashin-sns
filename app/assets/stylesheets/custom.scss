@@ -1,6 +1,6 @@
 @import "bootstrap";
 
-$my-black: #333333;
+$my-black: #262626;
 $border-thin: "1px solid rgba(0,0,0,0.0975)";
 $button-shadow: "2px 2px 5px rgba(0,0,0,0.2)";
 
@@ -8,6 +8,7 @@ $button-shadow: "2px 2px 5px rgba(0,0,0,0.2)";
 body {
   background-color: #fafafa;
   padding-top: 60px;
+  font-size: 14px;
 }
 
 /* header */
@@ -55,6 +56,15 @@ body {
 
 #feed-items .post .user-name {
   font-weight: 600;
+}
+
+#feed-items .post .likes-count {
+  font-weight: 600;
+}
+
+#feed-items .post .likes-count a {
+  color: $my-black;
+  text-decoration: none;
 }
 
 /* feed for mobile */
