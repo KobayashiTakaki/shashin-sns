@@ -43,30 +43,6 @@ body {
   padding-top: 60px;
 }
 
-#feed-items .post {
-  margin-bottom: 60px;
-  border: #{$border-thin};
-  border-radius: 3px;
-  background-color: #ffffff;
-}
-
-#feed-items .post img {
-  width: 100%;
-}
-
-#feed-items .post .user-name {
-  font-weight: 600;
-}
-
-#feed-items .post .likes-count {
-  font-weight: 600;
-}
-
-#feed-items .post .likes-count a {
-  color: $my-black;
-  text-decoration: none;
-}
-
 /* feed for mobile */
 @include media-breakpoint-down(xs) {
   #feed-items {

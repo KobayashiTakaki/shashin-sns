@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   post '/posts/like', to: 'likes#create'
   post '/posts/unlike', to: 'likes#destroy'
 
+  get '/posts/liked_by', to: 'users#index_liked_to_post'
+
   resources :users, only: [:index, :create, :update, :destroy]
   resources :posts, only: [:new, :create, :show, :edit, :update, :destroy]
 

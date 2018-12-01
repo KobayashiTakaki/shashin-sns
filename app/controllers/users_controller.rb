@@ -5,6 +5,15 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def index_liked_to_post
+    post_id = params[:post_id] || nil
+    @users = User.joins(:likes).where("post_id = ?", post_id)
+    respond_to do |format|
+      format.html { redirect_to root_url }
+      format.js
+    end
+  end
+
   def create
     @user = User.new(user_params)
 

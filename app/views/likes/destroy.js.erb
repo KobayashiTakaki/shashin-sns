@@ -1,1 +1,3 @@
 $("#like-form-<%= @post.id %>").html("<%= escape_javascript(render('likes/like', post: @post)) %>");
+var count = parseInt($("#post-<%= @post.id %> .likes-count span").text());
+$("#post-<%= @post.id %> .likes-count span").text(count - 1);
