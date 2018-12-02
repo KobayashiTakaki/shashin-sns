@@ -8,6 +8,7 @@ gem 'rails', '~> 5.2.1'
 gem 'bootstrap', '~> 4.0'
 gem 'jquery-rails'
 gem 'faker'
+gem 'kaminari', '~> 1.1'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
