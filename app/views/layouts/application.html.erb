@@ -11,6 +11,7 @@
 
   <body>
     <%= render 'shared/header' %>
+    <%= render 'shared/liked_users_modal'%>
     <div class="container-fluid justify-content-center px-0">
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
@@ -24,7 +25,6 @@
         <%= debug(params) %>
       </div>
     <% end %>
-    <%= render 'shared/liked_users_modal'%>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   </body>
 </html>
