@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_secure_password
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post
   validates :name, presence: true,
                   length: {maximum: 20,
@@ -40,6 +41,11 @@ class User < ApplicationRecord
   #あるpostをいいねしていたらtrueを返す
   def liked?(post)
     liked_posts.include?(post)
+  end
+
+  #コメントする
+  def comment(post, content)
+    Comment.create(user: self, post: post, content: content)
   end
 
   private

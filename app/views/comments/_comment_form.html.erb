@@ -1,0 +1,7 @@
+<%= form_with(model: current_user.comments.build, url: posts_comment_path) do |f| %>
+  <%= hidden_field_tag :post_id, post.id %>
+  <%= f.text_field :content %>
+  <%= button_tag(type: "submit", class: "comment-button") do %>
+    送信
+  <% end %>
+<% end %>

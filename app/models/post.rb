@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   validates :user_id, presence: true
   validate  :picture_size
   has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
 
   private

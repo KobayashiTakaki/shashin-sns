@@ -11,11 +11,18 @@ Rails.application.routes.draw do
 
   post '/posts/like', to: 'likes#create'
   post '/posts/unlike', to: 'likes#destroy'
+  post '/posts/comment', to: 'comments#create'
 
   get '/posts/liked_by', to: 'users#index_liked_to_post'
 
   resources :users, only: [:index, :create, :update, :destroy]
   resources :posts, only: [:new, :create, :show, :edit, :update, :destroy]
+
+  resources :posts do
+    member do
+      get :comments
+    end
+  end
 
 end
 
