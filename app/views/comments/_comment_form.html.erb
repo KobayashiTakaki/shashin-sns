@@ -1,8 +1,11 @@
 <%= form_with(model: current_user.comments.build,
     url: posts_comment_path, id: "comment-form-#{post.id}") do |f| %>
   <%= hidden_field_tag :post_id, post.id %>
-  <%= f.text_field :content, id: "comment-content-#{post.id}" %>
-  <%= button_tag(class: "comment-button", type: "button") do %>
-    送信
-  <% end %>
+  <div class="d-flex">
+    <%= f.text_field :content, id: "comment-content-#{post.id}",
+        class: "flex-grow-1", placeholder: "コメントを追加..." %>
+    <%= button_tag(class: "comment-button px-3", type: "button") do %>
+      送信
+    <% end %>
+  </div>
 <% end %>

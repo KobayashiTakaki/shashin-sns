@@ -1,4 +1,7 @@
 $ ->
+
+  $("form").attr({autocomplete: "off", autocorrect: "off"})
+
   #いいねボタン
   $(".post-menu .like-button").click (e) ->
     #フォームを送信
@@ -33,7 +36,7 @@ $ ->
   #コメント入力フォームの文字入力時
   $("[id^=comment-content-]").on 'keyup', (e) ->
     #空だったら送信ボタンを無効化
-    if $(this).val() != ""
+    if $(this).val().trim() != ""
       $(this).next().removeAttr("disabled")
     else
       $(this).next().attr("disabled", true)
