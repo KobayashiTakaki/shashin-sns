@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :create, :update, :destroy]
   resources :posts, only: [:new, :create, :show, :edit, :update, :destroy]
-  resources :comments, only: [:create]
+  resources :comments, only: [:create, :destroy]
 
   resources :posts do
     member do

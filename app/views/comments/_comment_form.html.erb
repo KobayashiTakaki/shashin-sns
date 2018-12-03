@@ -1,5 +1,5 @@
 <%= form_with(model: current_user.comments.build,
-    url: comments_path, id: "comment-form-#{post.id}") do |f| %>
+    url: comments_path, method: :post, id: "comment-form-#{post.id}") do |f| %>
   <%= hidden_field_tag :post_id, post.id %>
   <div class="d-flex">
     <%= f.text_field :content, id: "comment-content-#{post.id}",

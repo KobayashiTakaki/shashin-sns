@@ -1,3 +1,9 @@
-<li>
-  <span class="user-name mr-1"><%= comment.user.name %></span><%= comment.content %>
+<li id="comment-<%= comment.id %>">
+  <span class="user-name mr-1"><%= comment.user.name %></span>
+  <span class="content"><%= comment.content %></span>
+  <% if current_user == comment.user %>
+    <span class="float-right">
+      <%= render 'comments/delete_form', comment: comment %>
+    </span>
+  <% end %>
 </li>

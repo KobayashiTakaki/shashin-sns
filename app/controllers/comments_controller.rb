@@ -11,7 +11,14 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-
+    @destroyed_comment = Comment.find(params[:id])
+    if @destroyed_comment.user == current_user
+      @destroyed_comment.destroy
+      respond_to do |format|
+        format.html { redirect_to root_url }
+        format.js
+      end
+    end
   end
 
 end

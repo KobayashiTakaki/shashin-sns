@@ -45,4 +45,8 @@
   .unlike-button {
     color: #ff3450;
   }
+
+  form[id^="comment-delete"] {
+    display: inline;
+  }
 }

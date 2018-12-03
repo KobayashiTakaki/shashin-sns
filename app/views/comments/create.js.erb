@@ -1,3 +1,11 @@
+//inputの内容を消去
+$("[id^=comment-form-<%= @post.id %>]").find("[id^=comment-content-]").val('')
+
+//作成したコメントをulに追加
 $("#post-<%= @post.id %> .comments ul")
   .append("<%= escape_javascript(render 'comments/comment', comment: @created_comment) %>");
-console.log("<%= escape_javascript(render 'comments/comment', comment: @created_comment) %>");
+
+//削除ボタンのイベントメソッドバインド
+$("#comment-delete-<%= @created_comment.id %> button").on('click', function(){
+  Rails.fire($(this).parents("form")[0], 'submit')
+});

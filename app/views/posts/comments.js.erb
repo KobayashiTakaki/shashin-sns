@@ -15,3 +15,7 @@ $("#post-<%= @post.id %> .comments form:first")
 //@commentsをrenderしてul直下に追加する
 $("#post-<%= @post.id %> .comments").children("ul")
   .prepend("<%= escape_javascript(render @comments) %>");
+//削除ボタンのイベントメソッドバインド
+$(".comment-delete-button").on('click', function(){
+  Rails.fire($(this).parents("form")[0], 'submit')
+});

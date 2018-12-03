@@ -25,10 +25,11 @@ $ ->
   $(".comment-button").on 'click', (e) ->
     #フォームを送信
     Rails.fire($(this).parents("form")[0], 'submit')
-    #inputの内容を消去
-    $(this).prev().val('')
+
+  #コメント送信時
+  $("[id^=comment-form-]").on 'submit', (e) ->
     #ボタンを無効化
-    $(this).attr("disabled", true)
+    $(this).find(".comment-button").attr("disabled", true)
 
   #最初はコメント送信ボタンを無効化
   $(".comment-button").attr("disabled", true)
