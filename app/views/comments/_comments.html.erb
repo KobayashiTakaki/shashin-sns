@@ -1,3 +1,6 @@
+<% if post.comments.count > 3 %>
+  <%= render 'comments/show_more', post: post %>
+<% end %>
 <ul>
-  <%= render post.comments %>
+  <%= render post.comments.order('created_at ASC').last(3) %>
 </ul>

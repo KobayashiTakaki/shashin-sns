@@ -1,0 +1,6 @@
+<%= form_with(url: comments_post_path(post.id) , method: :get) do |f| %>
+  <%= hidden_field_tag :page, 1 %>
+  <button class="show-more-comments-button" type="button">
+    他のコメントを表示
+  </button>
+<% end %>

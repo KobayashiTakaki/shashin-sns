@@ -27,6 +27,16 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def comments
+    @page = params[:page]
+    @post = Post.find(params[:id])
+    @comments = @post.comments.order("created_at DESC").page(@page).per(10).reverse
+    respond_to do |format|
+      format.html {}
+      format.js
+    end
+  end
+
   private
     def post_params
       params.require(:post).permit(:picture)
