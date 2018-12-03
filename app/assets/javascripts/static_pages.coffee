@@ -24,7 +24,7 @@ $ ->
   #コメント送信ボタンクリック時
   $(".comment-button").click (e) ->
     #フォームを送信
-    Rails.fire($(this).parent()[0], 'submit')
+    Rails.fire($(this).parents("form")[0], 'submit')
     #inputの内容を消去
     $(this).prev().val('')
     #ボタンを無効化
