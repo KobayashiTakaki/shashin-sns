@@ -3,26 +3,26 @@ $ ->
   $("form").attr({autocomplete: "off", autocorrect: "off"})
 
   #いいねボタン
-  $(".post-menu .like-button").click (e) ->
+  $(".post-menu .like-button").on 'click', (e) ->
     #フォームを送信
-    Rails.fire($(this).parent()[0], 'submit')
+    Rails.fire($(this).parents("form")[0], 'submit')
     #ボタンを無効化
     $(this).attr("disabled", true)
 
   #いいねボタンクリック時
-  $(".liked-users-button").click (e) ->
+  $(".liked-users-button").on 'click', (e) ->
     #フォームを送信
-    Rails.fire($(this).parent()[0], 'submit')
+    Rails.fire($(this).parents("form")[0], 'submit')
     #いいねしたユーザーを表示するmodal
     $('#liked-users').modal()
 
   #他のコメントを表示ボタンクリック時
-  $(".show-more-comments-button").click (e) ->
+  $(".show-more-comments-button").on 'click', (e) ->
     #フォームを送信
     Rails.fire($(this).parent()[0], 'submit')
 
   #コメント送信ボタンクリック時
-  $(".comment-button").click (e) ->
+  $(".comment-button").on 'click', (e) ->
     #フォームを送信
     Rails.fire($(this).parents("form")[0], 'submit')
     #inputの内容を消去
@@ -40,3 +40,8 @@ $ ->
       $(this).next().removeAttr("disabled")
     else
       $(this).next().attr("disabled", true)
+
+  #コメント削除ボタンクリック時
+  $(".comment-delete-button").on 'click', (e) ->
+    #フォームを送信
+    Rails.fire($(this).parents("form")[0], 'submit')
