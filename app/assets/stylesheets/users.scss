@@ -1,8 +1,5 @@
 /* user profile */
 .user-profile {
-  .picture img {
-    width: 100%;
-  }
 
   button {
     background-color: transparent;
@@ -13,7 +10,7 @@
     appearance: none;
   }
 
-  .user-name {
+  .user-name, .display-name {
     font-weight: 600;
   }
 
@@ -21,4 +18,23 @@
     color: #999999;
   }
 
+  .relations {
+    .count {
+      font-weight: 600;
+      font-size: 1.3rem;
+    }
+
+    .label {
+      color: #999999;
+    }
+  }
+
+}
+
+.user-picture img{
+  border-radius: 50%;
+}
+
+.user-posts .row .col:last-child {
+  padding-right: 0;
 }

@@ -1,33 +1,51 @@
-<div class="user-profile d-flex">
-  <div class="picture float-left p-2">
-
-  </div>
-  <div class="profile flex-grow-1 p-2">
-    <div class="profile-header mb-3 d-flex align-items-center">
-      <div class="user-name flex-grow-1">
-        <h2><%= @user.name %></h2>
-      </div>
-      <%= link_to accounts_edit_path,
-        class: "config-button btn btn-light p-1" do %>
-        <i class="fas fa-cog"></i>プロフィールを編集
+<div class="container">
+  <div class="user-profile row align-items-center mt-2 mb-4">
+    <div class="user-picture col-4 p-1">
+      <% if not @user.picture.blank? %>
+        <%= image_tag @user.picture.url, class: "img-fluid" %>
       <% end %>
     </div>
-    <div class="relations mb-3 w-auto d-flex justify-content-between">
-      <div class="posts d-flex flex-column align-items-center">
-        <div class="count"><%= @user.posts.count %></div>
-        <div class="label">投稿</div>
+    <div class="profile col-8 p-2">
+      <div class="profile-header mb-2 d-flex align-items-center">
+        <div class="user-name flex-grow-1">
+          <h2><%= @user.name %></h2>
+        </div>
+        <% if @user.id == current_user.id %>
+          <%= link_to accounts_edit_path,
+            class: "config-button btn btn-light p-1" do %>
+            <i class="fas fa-cog"></i>プロフィールを編集
+          <% end %>
+        <% end %>
       </div>
-      <div class="followers d-flex flex-column align-items-center">
-        <div class="count">NN</div>
-        <div class="label">フォロワー</div>
+      <div class="display-name mb-3">
+        <%= @user.display_name %>
       </div>
-      <div class="following d-flex flex-column align-items-center">
-        <div class="count">NN</div>
-        <div class="label">フォロー中</div>
+      <div class="relations w-auto d-flex justify-content-between">
+        <div class="posts d-flex flex-column align-items-center">
+          <div class="count"><%= @user.posts.count %></div>
+          <div class="label">投稿</div>
+        </div>
+        <div class="followers d-flex flex-column align-items-center">
+          <div class="count">NN</div>
+          <div class="label">フォロワー</div>
+        </div>
+        <div class="following d-flex flex-column align-items-center">
+          <div class="count">NN</div>
+          <div class="label">フォロー中</div>
+        </div>
       </div>
-    </div>
-    <div class="display-name">
-      <h4><%= @user.display_name %></h4>
     </div>
   </div>
+</div>
+<hr>
+<div class="user-posts container-fluid">
+  <% @user.posts.each_slice(3) do |posts_chunk| %>
+    <div class="row mb-1 align-items-center">
+      <% posts_chunk.each do |post| %>
+        <div class="col-4 pl-0 pr-1">
+          <%= image_tag post.picture.url, class: "img-fluid" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>

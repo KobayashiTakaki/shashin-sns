@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  mount_uploader :picture, PictureUploader
   before_save :downcase
   has_secure_password
   has_many :posts, dependent: :destroy
