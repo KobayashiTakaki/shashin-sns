@@ -40,6 +40,8 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update_attributes(user_params)
+      log_in @user
+      sign_in(@user, :bypass => true)
       flash[:success] = "保存しました"
       redirect_to root_url
     else

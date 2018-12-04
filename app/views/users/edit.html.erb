@@ -1,6 +1,6 @@
 <h1>アカウント設定</h1>
 <div class="px-3">
-  <%= form_for(@user, url: accounts_edit_path) do |f| %>
+  <%= form_for(@user, url: user_path(@user.id), method: :patch) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     <div class="form-group">
       <%= f.label :name, "アカウント名" %>
