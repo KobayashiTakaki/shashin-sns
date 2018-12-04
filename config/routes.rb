@@ -24,6 +24,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/:user_name', to: 'users#show'
+
 end
 
 # GET / => static_pages#home

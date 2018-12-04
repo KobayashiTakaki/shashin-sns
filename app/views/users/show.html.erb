@@ -1,0 +1,27 @@
+<div class="user-profile d-flex">
+  <div class="picture float-left p-2">
+
+  </div>
+  <div class="profile flex-grow-1 p-2">
+    <div class="user-name mb-3">
+      <h2><%= @user.name %></h2>
+    </div>
+    <div class="relations mb-3 w-auto d-flex justify-content-between">
+      <div class="posts d-flex flex-column align-items-center">
+        <div class="count"><%= @user.posts.count %></div>
+        <div class="label">投稿</div>
+      </div>
+      <div class="followers d-flex flex-column align-items-center">
+        <div class="count">NN</div>
+        <div class="label">フォロワー</div>
+      </div>
+      <div class="following d-flex flex-column align-items-center">
+        <div class="count">NN</div>
+        <div class="label">フォロー中</div>
+      </div>
+    </div>
+    <div class="display-name">
+      <h4><%= @user.display_name %></h4>
+    </div>
+  </div>
+</div>
