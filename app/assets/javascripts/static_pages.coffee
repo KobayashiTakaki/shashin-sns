@@ -1,4 +1,4 @@
-$ ->
+$(document).on 'turbolinks:load', ->
 
   $("form").attr({autocomplete: "off", autocorrect: "off"})
 
