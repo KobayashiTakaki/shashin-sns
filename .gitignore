@@ -34,3 +34,5 @@
 !/vendor/.keep
 /public/uploads/*
 .DS_Store
+/config/initializers/*
+/config/environments/*

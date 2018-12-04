@@ -1,4 +1,4 @@
-<% if logged_in? %>
+<% if user_signed_in? %>
   <%= link_to new_post_path, id: "new-post" do %>
      <i class="fas fa-plus fa-2x"></i>
   <% end %>

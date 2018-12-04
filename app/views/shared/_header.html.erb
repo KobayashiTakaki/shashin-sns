@@ -8,10 +8,10 @@
         <button class="btn text-dark" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="far fa-lg fa-user"></i>
         </button>
-        <% if logged_in? %>
+        <% if user_signed_in? %>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <%= link_to "プロフィール", "/#{current_user.name}", class: "dropdown-item" %>
-            <%= link_to "ログアウト", logout_path, method: :post, class: "dropdown-item" %>
+            <%= link_to "ログアウト", logout_path, method: :delete, class: "dropdown-item" %>
           </div>
         <% else %>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
