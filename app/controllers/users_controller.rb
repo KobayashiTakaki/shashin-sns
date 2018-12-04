@@ -43,7 +43,7 @@ class UsersController < ApplicationController
       log_in @user
       sign_in(@user, :bypass => true)
       flash[:success] = "保存しました"
-      redirect_to root_url
+      redirect_to "/#{@user.name}"
     else
       flash.now[:danger] = "保存に失敗しました"
       render 'edit'

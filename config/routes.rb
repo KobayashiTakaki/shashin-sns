@@ -8,7 +8,6 @@ Rails.application.routes.draw do
     get 'signup', to: 'devise/registrations#new'
   end
 
-  get '/signup', to: 'users#new'
   get '/accounts/edit', to: 'users#edit'
 
   post '/login', to: 'sessions#create'
