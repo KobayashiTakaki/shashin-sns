@@ -1,11 +1,6 @@
 @import "custom.scss";
 
-#feed-items .post {
-  margin-bottom: 60px;
-  border: #{$border-thin};
-  border-radius: 3px;
-  background-color: #ffffff;
-
+.post {
   img {
     width: 100%;
   }
@@ -53,4 +48,11 @@
   form[id^="comment-delete"] {
     display: inline;
   }
+}
+
+#feed-items .post {
+  margin-bottom: 60px;
+  border: #{$border-thin};
+  border-radius: 3px;
+  background-color: #ffffff;
 }

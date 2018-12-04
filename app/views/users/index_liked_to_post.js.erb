@@ -1,1 +1,5 @@
-$("#liked-users .user-list").html("<%= escape_javascript(render(@users)) %>");
+if($("#post-detail").length == 0){
+  $("#liked-users .user-list").html("<%= escape_javascript(render(@users)) %>");
+} else {
+  $("#post-detail .user-list").html("<%= escape_javascript(render(@users)) %>");
+}
