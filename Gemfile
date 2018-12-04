@@ -10,6 +10,8 @@ gem 'jquery-rails'
 gem 'faker'
 gem 'kaminari', '~> 1.1'
 gem 'jquery-turbolinks'
+gem 'devise'
+gem 'omniauth-facebook'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
