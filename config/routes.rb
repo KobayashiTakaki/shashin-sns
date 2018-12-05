@@ -23,6 +23,12 @@ Rails.application.routes.draw do
   resources :articles, only: [:new, :create, :show, :edit, :update, :destroy]
   resources :comments, only: [:create, :destroy]
 
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+
   resources :articles do
     member do
       get :comments

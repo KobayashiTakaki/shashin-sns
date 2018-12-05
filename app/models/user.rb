@@ -12,6 +12,14 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :liked_articles, through: :likes, source: :article
+  has_many :active_relationships, class_name: "Relationship",
+                                foreign_key: "follower_id",
+                                dependent: :destroy
+  has_many :passive_relationships, class_name: "Relationship",
+                                foreign_key: "followee_id",
+                                dependent: :destroy
+  has_many :following, through: :active_relationships, source: :followee
+  has_many :followers, through: :active_relationships, source: :follower
   validates :name, presence: true,
                   length: {maximum: 50,
                             message: "最大文字数は50文字です" },
@@ -55,6 +63,25 @@ class User < ApplicationRecord
     Comment.create(user: self, article: article, content: content)
   end
 
+  def feed
+
+  end
+
+  # ユーザーをフォローする
+  def follow(other_user)
+    following << other_user
+  end
+
+  # ユーザーをフォロー解除する
+  def unfollow(other_user)
+    active_relationships.find_by(followee_id: other_user.id).destroy
+  end
+
+  # 現在のユーザーがフォローしてたらtrueを返す
+  def following?(other_user)
+    following.include?(other_user)
+  end
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
@@ -64,8 +91,8 @@ class User < ApplicationRecord
       user.display_name = ''
       user.picture = ''
       user.name = SecureRandom.alphanumeric(10)
+    end
   end
-end
 
   private
     def downcase

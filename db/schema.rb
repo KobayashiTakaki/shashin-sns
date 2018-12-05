@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_05_114226) do
+ActiveRecord::Schema.define(version: 2018_12_05_124412) do
 
   create_table "articles", force: :cascade do |t|
     t.string "picture"
@@ -38,6 +38,16 @@ ActiveRecord::Schema.define(version: 2018_12_05_114226) do
     t.index ["article_id"], name: "index_likes_on_article_id"
     t.index ["user_id", "article_id"], name: "index_likes_on_user_id_and_article_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followee_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followee_id"], name: "index_relationships_on_followee_id"
+    t.index ["follower_id", "followee_id"], name: "index_relationships_on_follower_id_and_followee_id", unique: true
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
   create_table "users", force: :cascade do |t|

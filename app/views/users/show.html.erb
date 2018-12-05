@@ -26,11 +26,11 @@
           <div class="label">投稿</div>
         </div>
         <div class="followers d-flex flex-column align-items-center">
-          <div class="count">NN</div>
+          <div class="count"><%= @user.followers.count %></div>
           <div class="label">フォロワー</div>
         </div>
         <div class="following d-flex flex-column align-items-center">
-          <div class="count">NN</div>
+          <div class="count"><%= @user.following.count %></div>
           <div class="label">フォロー中</div>
         </div>
       </div>
