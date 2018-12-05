@@ -34,5 +34,4 @@
 !/vendor/.keep
 /public/uploads/*
 .DS_Store
-/config/initializers/*
-/config/environments/*
+config/initializers/devise.rb
