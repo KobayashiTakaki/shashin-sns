@@ -34,4 +34,5 @@
 !/vendor/.keep
 /public/uploads/*
 .DS_Store
-config/initializers/devise.rb
+/config/accessKeys.csv
+.env
