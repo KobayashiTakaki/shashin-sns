@@ -35,4 +35,4 @@
 /public/uploads/*
 .DS_Store
 /config/accessKeys.csv
-.env
+*.env
