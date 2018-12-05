@@ -66,6 +66,10 @@ body {
     border: none;
     background-color: inherit;
   }
+
+  input[id^="comment-content-"] {
+    background-color: #fafafa;
+  }
 }
 
 

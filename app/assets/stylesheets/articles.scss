@@ -23,6 +23,18 @@
     font-weight: 600;
   }
 
+  .user-info {
+    a {
+      text-decoration: none;
+      color: $my-black;
+    }
+
+    img {
+      max-width: 40px;
+      border-radius: 50%;
+    }
+  }
+
   .likes-count button{
     color: $my-black;
     font-weight: 00;
@@ -47,6 +59,11 @@
 
   form[id^="comment-delete"] {
     display: inline;
+  }
+
+  .created-at {
+    font-size: 10px;
+    color: #999999;
   }
 }
 

@@ -1,5 +1,7 @@
 <% if @feed_items.any? %>
-  <div id="feed-items">
-    <%= render @feed_items %>
+  <div id="feed-items" class="container-fluid px-0">
+    <div class="col-lg-8 col-md-9 mx-auto px-0">
+      <%= render @feed_items %>
+    </div>
   </div>
 <% end %>
