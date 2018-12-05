@@ -2,7 +2,7 @@
   <div class="user-info col py-3">
     <span class="user-name px-2"><%= article.user.name %></span>
   </div>
-  <%= image_tag article.picture.url %>
+  <%= image_tag article.picture.gallery.url %>
   <div class="p-3 article-info">
     <div class="article-menu mb-2">
       <div id="like-form-<%= article.id %>">

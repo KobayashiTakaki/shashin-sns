@@ -13,7 +13,7 @@
     <div class="form-group">
       <%= f.label :picture, "プロフィール画像" %>
       <% if not @user.picture.blank? %>
-        <%= image_tag @user.picture.url, class: "img-fluid" %>
+        <%= image_tag @user.picture.thumb.url, class: "img-fluid" %>
       <% end %>
       <%= f.file_field :picture, accept: 'image/jpeg,image/png',
         class: "form-control-file"%>

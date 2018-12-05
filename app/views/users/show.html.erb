@@ -2,7 +2,7 @@
   <div class="user-profile row align-items-center mt-2 mb-4">
     <div class="user-picture col-4 p-1">
       <% if not @user.picture.blank? %>
-        <%= image_tag @user.picture.url, class: "img-fluid" %>
+        <%= image_tag @user.picture.thumb.url, class: "img-fluid" %>
       <% end %>
     </div>
     <div class="profile col-8 p-2">
@@ -46,7 +46,7 @@
           <%= form_with(url: article_path(article.id), method: :get) do |f| %>
             <%= hidden_field_tag :id, article.id %>
             <button class="article-detail-button" type="button">
-              <%= image_tag article.picture.url, class: "img-fluid" %>
+              <%= image_tag article.picture.thumb.url, class: "img-fluid" %>
             </button>
           <% end %>
         </div>
