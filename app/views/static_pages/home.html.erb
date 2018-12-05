@@ -4,8 +4,5 @@
   <% end %>
   <%= render 'shared/feed' %>
 <% else %>
-  <div>
-    <%= link_to "ログイン", login_path, class: "btn btn-secondary" %>
-    <%= link_to "ユーザ登録", signup_path, class: "btn btn-secondary" %>
-  </div>
+  <%= render 'static_pages/landing' %>
 <% end %>

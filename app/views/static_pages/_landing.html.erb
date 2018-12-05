@@ -1,0 +1,19 @@
+<div class="landing container-fluid">
+  <div class="hero d-flex flex-column align-items-center my-3">
+    <div class="message-line">
+      Welcome
+    </div>
+    <div class="message-line">
+      to
+    </div>
+    <div class="message-line">
+      Shasin SNS!
+    </div>
+  </div>
+  <div class="links d-flex flex-column align-items-center">
+    <%= link_to user_facebook_omniauth_authorize_path,
+        class: "btn btn-facebook" do %>
+        <i class="fab fa-lg fa-facebook-square pr-2"></i>Sign in with Facebook
+    <% end %>
+  </div>
+</div>

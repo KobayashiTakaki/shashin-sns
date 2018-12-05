@@ -1,3 +1,21 @@
-// Place all the styles related to the StaticPages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.logo{
+  font-family: 'Lobster', cursive;
+}
+
+.btn-facebook {
+  background-color: #3966b8;
+  border-radius: 3px;
+  box-shadow: 0px 2px 1px rgba(0,0,0,0.3);
+}
+
+a.btn-facebook {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.hero {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1em;
+  font-family: 'Lobster', cursive;
+}
