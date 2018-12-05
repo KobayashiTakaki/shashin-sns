@@ -503,6 +503,7 @@ DEPENDENCIES
   dotenv-rails
   faker
   fog
+  fog-aws
   jbuilder (~> 2.5)
   jquery-rails
   jquery-turbolinks
