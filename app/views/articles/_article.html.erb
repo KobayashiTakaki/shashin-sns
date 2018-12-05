@@ -1,0 +1,25 @@
+<div id="article-<%= article.id %>" class="article">
+  <div class="user-info col py-3">
+    <span class="user-name px-2"><%= article.user.name %></span>
+  </div>
+  <%= image_tag article.picture.url %>
+  <div class="p-3 article-info">
+    <div class="article-menu mb-2">
+      <div id="like-form-<%= article.id %>">
+        <% if current_user.liked?(article) %>
+          <%= render 'likes/unlike', article: article %>
+        <% else %>
+          <%= render 'likes/like', article: article %>
+        <% end %>
+      </div>
+    </div>
+    <div class="likes-count mb-2">
+      <%= render 'likes/liked_by', article: article %>
+    </div>
+    <div class="comments">
+      <%= render 'comments/comments', article: article %>
+      <hr>
+      <%= render 'comments/comment_form', article: article %>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <%= link_to new_post_path, id: "new-post" do %>
+  <%= link_to new_article_path, id: "new-article" do %>
      <i class="fas fa-plus fa-2x"></i>
   <% end %>
   <%= render 'shared/feed' %>

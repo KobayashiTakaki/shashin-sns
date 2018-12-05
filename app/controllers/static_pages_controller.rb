@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
   def home
-    @feed_items = Post.all
+    @feed_items = Article.all
   end
 end

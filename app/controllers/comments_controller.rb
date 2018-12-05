@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
 
   def create
-    @post = Post.find(params[:post_id])
+    @article = Article.find(params[:article_id])
     content = params[:comment][:content]
-    @created_comment = current_user.comment(@post, content)
+    @created_comment = current_user.comment(@article, content)
     respond_to do |format|
       format.html { redirect_to root_url }
       format.js

@@ -1,8 +1,8 @@
-@postsSetup = () ->
+@articlesSetup = () ->
   $("form").attr({autocomplete: "off", autocorrect: "off"})
 
   #いいねボタン
-  $(".post-menu .like-button").on 'click', (e) ->
+  $(".article-menu .like-button").on 'click', (e) ->
     #フォームを送信
     Rails.fire($(this).parents("form")[0], 'submit')
     #ボタンを無効化
@@ -49,11 +49,11 @@
     Rails.fire($(this).parents("form")[0], 'submit')
 
   #投稿詳細ボタンクリック時
-  $(".post-detail-button").on 'click', (e) ->
+  $(".article-detail-button").on 'click', (e) ->
     #フォームを送信
     Rails.fire($(this).parents("form")[0], 'submit')
     #投稿詳細を表示するmodal
-    $('#post-detail').modal()
+    $('#article-detail').modal()
 
 $(document).on 'turbolinks:load', ->
-  postsSetup()
+  articlesSetup()

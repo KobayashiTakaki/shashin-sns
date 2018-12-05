@@ -8,10 +8,10 @@ class User < ApplicationRecord
   mount_uploader :picture, PictureUploader
   before_save :downcase
   #has_secure_password
-  has_many :posts, dependent: :destroy
+  has_many :articles, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :liked_posts, through: :likes, source: :post
+  has_many :liked_articles, through: :likes, source: :article
   validates :name, presence: true,
                   length: {maximum: 50,
                             message: "最大文字数は50文字です" },
@@ -34,25 +34,25 @@ class User < ApplicationRecord
   end
 
   #いいねする
-  def like(post)
-    Like.create(user: self, post: post)
+  def like(article)
+    Like.create(user: self, article: article)
   end
 
   #いいねを削除する
-  def unlike(post)
-    if like = Like.find_by(user: self, post: post)
+  def unlike(article)
+    if like = Like.find_by(user: self, article: article)
       like.destroy
     end
   end
 
-  #あるpostをいいねしていたらtrueを返す
-  def liked?(post)
-    liked_posts.include?(post)
+  #あるarticleをいいねしていたらtrueを返す
+  def liked?(article)
+    liked_articles.include?(article)
   end
 
   #コメントする
-  def comment(post, content)
-    Comment.create(user: self, post: post, content: content)
+  def comment(article, content)
+    Comment.create(user: self, article: article, content: content)
   end
 
   def self.from_omniauth(auth)

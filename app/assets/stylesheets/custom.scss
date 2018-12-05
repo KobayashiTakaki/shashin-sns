@@ -28,8 +28,8 @@ body {
   border-bottom: #{$border-thin};
 }
 
-/* new-post button */
-#new-post {
+/* new-article button */
+#new-article {
   position: fixed;
   z-index: 2;
   right: 50px;
@@ -61,7 +61,7 @@ body {
     padding-top: 0;
   }
 
-  #feed-items .post {
+  #feed-items .article {
     margin-bottom: 15px;
     border: none;
     background-color: inherit;

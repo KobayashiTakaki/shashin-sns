@@ -1,13 +1,13 @@
-class PostsController < ApplicationController
+class ArticlesController < ApplicationController
   before_action :logged_in_user, except: [:show]
 
   def new
-    @post = Post.new()
+    @article = Article.new()
   end
 
   def create
-    post = current_user.posts.build(post_params)
-    if post.save
+    article = current_user.articles.build(article_params)
+    if article.save
       flash[:success] = "画像を投稿しました"
       redirect_to root_url
     else
@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
+    @article = Article.find(params[:id])
     respond_to do |format|
       format.html {}
       format.js
@@ -28,13 +28,13 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
+    @article = Article.find(params[:id])
   end
 
   def comments
     @page = params[:page]
-    @post = Post.find(params[:id])
-    @comments = @post.comments.order("created_at DESC").page(@page).per(10).reverse
+    @article = Articlefind(params[:id])
+    @comments = @article.comments.order("created_at DESC").page(@page).per(10).reverse
     respond_to do |format|
       format.html {}
       format.js
@@ -42,7 +42,7 @@ class PostsController < ApplicationController
   end
 
   private
-    def post_params
-      params.require(:post).permit(:picture)
+    def article_params
+      params.require(:article).permit(:picture)
     end
 end

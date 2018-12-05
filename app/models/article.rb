@@ -1,4 +1,4 @@
-class Post < ApplicationRecord
+class Article < ApplicationRecord
   mount_uploader :picture, PictureUploader
   validates :picture, presence: true
   belongs_to :user

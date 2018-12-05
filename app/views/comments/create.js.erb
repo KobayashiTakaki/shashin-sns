@@ -1,8 +1,8 @@
 //inputの内容を消去
-$("[id^=comment-form-<%= @post.id %>]").find("[id^=comment-content-]").val('')
+$("[id^=comment-form-<%= @article.id %>]").find("[id^=comment-content-]").val('')
 
 //作成したコメントをulに追加
-$("#post-<%= @post.id %> .comments ul")
+$("#article-<%= @article.id %> .comments ul")
   .append("<%= escape_javascript(render 'comments/comment', comment: @created_comment) %>");
 
 //削除ボタンのイベントメソッドバインド

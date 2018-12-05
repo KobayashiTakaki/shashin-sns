@@ -14,16 +14,16 @@ Rails.application.routes.draw do
   post '/logout', to: 'sessions#destroy'
   patch '/accounts/edit', to: 'users#update'
 
-  post '/posts/like', to: 'likes#create'
-  post '/posts/unlike', to: 'likes#destroy'
+  post '/articles/like', to: 'likes#create'
+  post '/articles/unlike', to: 'likes#destroy'
 
-  get '/posts/liked_by', to: 'users#index_liked_to_post'
+  get '/articles/liked_by', to: 'users#index_liked_to_article'
 
   resources :users, only: [:index, :create, :update, :destroy]
-  resources :posts, only: [:new, :create, :show, :edit, :update, :destroy]
+  resources :articles, only: [:new, :create, :show, :edit, :update, :destroy]
   resources :comments, only: [:create, :destroy]
 
-  resources :posts do
+  resources :articles do
     member do
       get :comments
     end
@@ -32,20 +32,3 @@ Rails.application.routes.draw do
   get '/:user_name', to: 'users#show'
 
 end
-
-# GET / => static_pages#home
-# GET /users/new => User#new
-# POST /users/new => User#create
-#
-# GET /login => Sessions#new
-# POST /login => Sessions#create
-# POST /logout => Sessions#destroy
-#
-# GET /posts/:id => Posts#show
-# GET /posts/new => Posts#new
-# POST /posts => Posts#create
-# POST /posts/:id/comment => Comments#create
-# POST /posts/:id/like => Likes#create
-#
-#
-# GET /:user_name => Users#show

@@ -1,6 +1,6 @@
-<%= form_with(url: posts_liked_by_path, method: :get) do |f| %>
-  <%= hidden_field_tag :post_id, post.id %>
+<%= form_with(url: articles_liked_by_path, method: :get) do |f| %>
+  <%= hidden_field_tag :article_id, article.id %>
   <button class="liked-users-button" type="button">
-    いいね！<span><%= post.likes.size %></span>件
+    いいね！<span><%= article.likes.size %></span>件
   </button>
 <% end %>

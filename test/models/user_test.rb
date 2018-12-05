@@ -5,8 +5,7 @@ class UserTest < ActiveSupport::TestCase
     @user = User.new(name: 'Example',
                     email: 'email@example.com',
                     display_name: 'Example User',
-                    password: "password",
-                    password_confirmation: "password")
+                    password: "password")
   end
 
   test "name should not be too long" do

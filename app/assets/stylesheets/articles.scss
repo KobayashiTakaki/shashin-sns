@@ -1,6 +1,6 @@
 @import "custom.scss";
 
-.post {
+.article {
   img {
     width: 100%;
   }
@@ -50,7 +50,7 @@
   }
 }
 
-#feed-items .post {
+#feed-items .article {
   margin-bottom: 60px;
   border: #{$border-thin};
   border-radius: 3px;

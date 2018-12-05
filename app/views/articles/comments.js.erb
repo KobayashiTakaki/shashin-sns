@@ -1,19 +1,19 @@
 //1ページ目だったら最初に入っているliを消す
 <% if @page.to_i.equal?(1) %>
-  $("#post-<%= @post.id %> .comments").children("ul")
+  $("#article-<%= @article.id %> .comments").children("ul")
     .empty()
 <% end %>
 //ページを1加算する
 var nextPage = parseInt(<%= @page %>) + 1;
-$("#post-<%= @post.id %> .comments form:first")
+$("#article-<%= @article.id %> .comments form:first")
   .children("input[name='page']").attr({value: nextPage});
 //paginationができなければボタンを消す
-<% if @post.comments.page(@page.to_i + 1).per(10).out_of_range? %>
-  $("#post-<%= @post.id %> .show-more-comments-button")
+<% if @article.comments.page(@page.to_i + 1).per(10).out_of_range? %>
+  $("#article-<%= @article.id %> .show-more-comments-button")
     .remove()
 <% end %>
 //@commentsをrenderしてul直下に追加する
-$("#post-<%= @post.id %> .comments").children("ul")
+$("#article-<%= @article.id %> .comments").children("ul")
   .prepend("<%= escape_javascript(render @comments) %>");
 //削除ボタンのイベントメソッドバインド
 $(".comment-delete-button").on('click', function(){

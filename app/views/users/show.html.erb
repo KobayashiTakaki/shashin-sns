@@ -21,8 +21,8 @@
         <%= @user.display_name %>
       </div>
       <div class="relations w-auto d-flex justify-content-between">
-        <div class="posts d-flex flex-column align-items-center">
-          <div class="count"><%= @user.posts.count %></div>
+        <div class="articles d-flex flex-column align-items-center">
+          <div class="count"><%= @user.articles.count %></div>
           <div class="label">投稿</div>
         </div>
         <div class="followers d-flex flex-column align-items-center">
@@ -38,15 +38,15 @@
   </div>
 </div>
 <hr>
-<div class="user-posts container-fluid">
-  <% @user.posts.each_slice(3) do |posts_chunk| %>
+<div class="user-articles container-fluid">
+  <% @user.articles.each_slice(3) do |articles_chunk| %>
     <div class="row mb-1 align-items-center">
-      <% posts_chunk.each do |post| %>
-        <div class="post col-4 pl-0 pr-1">
-          <%= form_with(url: post_path(post.id), method: :get) do |f| %>
-            <%= hidden_field_tag :id, post.id %>
-            <button class="post-detail-button" type="button">
-              <%= image_tag post.picture.url, class: "img-fluid" %>
+      <% articles_chunk.each do |article| %>
+        <div class="article col-4 pl-0 pr-1">
+          <%= form_with(url: article_path(article.id), method: :get) do |f| %>
+            <%= hidden_field_tag :id, article.id %>
+            <button class="article-detail-button" type="button">
+              <%= image_tag article.picture.url, class: "img-fluid" %>
             </button>
           <% end %>
         </div>
@@ -55,4 +55,4 @@
     </div>
   <% end %>
 </div>
-<%= render 'shared/post_detail_modal' %>
+<%= render 'shared/article_detail_modal' %>
