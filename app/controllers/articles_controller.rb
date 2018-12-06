@@ -33,7 +33,7 @@ class ArticlesController < ApplicationController
 
   def comments
     @page = params[:page]
-    @article = Articlefind(params[:id])
+    @article = Article.find(params[:id])
     @comments = @article.comments.order("created_at DESC").page(@page).per(10).reverse
     respond_to do |format|
       format.html {}
