@@ -19,8 +19,8 @@ Rails.application.routes.draw do
 
   get '/articles/liked_by', to: 'users#index_liked_to_article'
 
-  resources :users, only: [:index, :create, :update, :destroy]
-  resources :articles, only: [:new, :create, :show, :edit, :update, :destroy]
+  resources :users, only: [:create, :update, :destroy]
+  resources :articles, only: [:new, :create, :show, :update, :destroy]
   resources :comments, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
 

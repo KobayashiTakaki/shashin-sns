@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, except: [:new, :create, :show]
 
-  def index
-    @users = User.all
-  end
-
   def index_liked_to_article
     article_id = params[:article_id] || nil
     @users = User.joins(:likes).where("article_id = ?", article_id)
