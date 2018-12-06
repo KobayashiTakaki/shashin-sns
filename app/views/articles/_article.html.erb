@@ -2,9 +2,7 @@
   <div class="user-info col p-2">
     <%= link_to "/#{article.user.name}" do %>
       <div class="profile-link">
-        <% if not article.user.picture.thumb.blank? %>
-          <%= image_tag article.user.picture.thumb.url %>
-        <% end %>
+        <%= image_tag article.user.picture.thumb.url %>
         <span class="user-name px-2"><%= article.user.name %></span>
       </div>
     <% end %>

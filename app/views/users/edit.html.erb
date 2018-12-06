@@ -13,9 +13,8 @@
     </div>
     <div class="form-group">
       <%= f.label :picture, "プロフィール画像" %>
-      <% if not @user.picture.blank? %>
-        <%= image_tag @user.picture.thumb.url, class: "img-fluid" %>
-      <% end %>
+      <%= image_tag @user.picture.thumb.url, class: "img-fluid" %>
+      <%= f.check_box :remove_picture %>プロフィール画像を削除
       <%= f.file_field :picture, accept: 'image/jpeg,image/png',
         class: "form-control-file"%>
     </div>

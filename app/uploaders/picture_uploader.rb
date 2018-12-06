@@ -21,7 +21,6 @@ class PictureUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg png)
   end
 
-
   version :thumb do
     process resize_to_fill: [250, 250, "center"]
 
@@ -38,6 +37,11 @@ class PictureUploader < CarrierWave::Uploader::Base
       "gallery.jpg"
     end
 
+  end
+
+  #デフォルト画像の設定
+  def default_url
+    [version_name, "default.jpg"].compact.join('_')
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
