@@ -1,3 +1,4 @@
+@import "custom.scss";
 /* user profile */
 .user-profile {
 
@@ -37,4 +38,20 @@
 
 .user-articles .row .col:last-child {
   padding-right: 0;
+}
+
+.user-name {
+  font-weight: 600;
+}
+
+.user-info {
+  a {
+    text-decoration: none;
+    color: $my-black;
+  }
+
+  img {
+    max-width: 40px;
+    border-radius: 50%;
+  }
 }

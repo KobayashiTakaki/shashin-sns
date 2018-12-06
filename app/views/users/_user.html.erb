@@ -1,1 +1,8 @@
-<li class="py-2 user-name"><%= user.name %></li>
+<li class="py-2 user-info">
+  <%= link_to "/#{user.name}" do %>
+  <div class="profile-link">
+    <%= image_tag user.picture.thumb.url %>
+    <span class="user-name px-2"><%= user.name %></span>
+  </div>
+  <% end %>
+</li>
