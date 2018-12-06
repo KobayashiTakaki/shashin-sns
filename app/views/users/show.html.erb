@@ -35,12 +35,20 @@
           <div class="label">投稿</div>
         </div>
         <div class="followers d-flex flex-column align-items-center">
-          <div class="count"><%= @user.followers.count %></div>
-          <div class="label">フォロワー</div>
+          <%= form_with(url: followers_user_path(@user), method: :get) do |f| %>
+            <button class="followers-button" type="button">
+              <div class="count"><%= @user.followers.count %></div>
+              <div class="label">フォロワー</div>
+            </button>
+          <% end %>
         </div>
         <div class="following d-flex flex-column align-items-center">
-          <div class="count"><%= @user.following.count %></div>
-          <div class="label">フォロー中</div>
+          <%= form_with(url: following_user_path(@user), method: :get) do |f| %>
+            <button class="following-button" type="button">
+              <div class="count"><%= @user.following.count %></div>
+              <div class="label">フォロー中</div>
+            </button>
+          <% end %>
         </div>
       </div>
     </div>

@@ -11,7 +11,7 @@
 
   <body>
     <%= render 'shared/header' %>
-    <%= render 'shared/liked_users_modal'%>
+    <%= render 'shared/users_modal'%>
     <div class="container-fluid justify-content-center px-0">
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>

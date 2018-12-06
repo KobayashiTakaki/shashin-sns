@@ -14,8 +14,8 @@
     Rails.fire($(this).parents("form")[0], 'submit')
 
   $("#feed-items .liked-users-button").on 'click', (e) ->
-    #いいねしたユーザーを表示するmodal
-    $('#liked-users').modal()
+    #ユーザーを表示するmodal
+    $('#users-modal').modal()
 
   #他のコメントを表示ボタンクリック時
   $(".show-more-comments-button").on 'click', (e) ->

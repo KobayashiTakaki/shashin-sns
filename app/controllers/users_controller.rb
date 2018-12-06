@@ -61,6 +61,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def following
+    @users = User.find(params[:id]).following
+    respond_to do |format|
+      format.html {}
+      format.js
+    end
+  end
+
+  def followers
+    @users = User.find(params[:id]).followers
+    respond_to do |format|
+      format.html {}
+      format.js
+    end
+  end
+
   private
     def user_params
       params.require(:user).permit(
