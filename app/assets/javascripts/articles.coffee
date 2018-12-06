@@ -55,5 +55,10 @@
     #投稿詳細を表示するmodal
     $('#article-detail').modal()
 
+
+  $("#new_article").children(".submit-button").attr(disabled: "true");
+  $("#article_picture").on 'change', (e) ->
+      $(".submit-button").removeAttr("disabled")
+
 $(document).on 'turbolinks:load', ->
   articlesSetup()
