@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :create, :update, :destroy]
   resources :articles, only: [:new, :create, :show, :edit, :update, :destroy]
   resources :comments, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
 
   resources :users do
     member do

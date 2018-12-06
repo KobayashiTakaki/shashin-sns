@@ -1,17 +1,15 @@
-User.create!(name: "star",
+User.new(name: "star",
             display_name: "Star Butterfly",
             email: "star@example.com",
-            password: "password",
-            password_confirmation: "password")
+            password: "password").save!
 
 10.times do |n|
   display_name = Faker::FamilyGuy.unique.character
   name = display_name.split(' ')[0].downcase
   email = "#{name}@example.com"
   password = "password"
-  User.create!(name: name,
+  User.new(name: name,
               display_name: display_name,
               email: email,
-              password: password,
-              password_confirmation: password)
+              password: password).save!
 end

@@ -19,7 +19,7 @@ class User < ApplicationRecord
                                 foreign_key: "followee_id",
                                 dependent: :destroy
   has_many :following, through: :active_relationships, source: :followee
-  has_many :followers, through: :active_relationships, source: :follower
+  has_many :followers, through: :passive_relationships, source: :follower
   validates :name, presence: true,
                   length: {maximum: 50,
                             message: "最大文字数は50文字です" },
