@@ -1,0 +1,75 @@
+<% content_for(:page_title, "#{@user.display_name}さん(@#{@user.name})") %>
+<div class="container">
+  <div class="user-profile row align-items-center mt-2 mb-4">
+    <div class="user-picture col-4 p-1">
+      <%= image_tag @user.picture.thumb.url, class: "img-fluid" %>
+    </div>
+    <div class="profile col-8 p-2">
+      <div class="profile-header mb-2 row">
+        <div class="user-name col-sm-6">
+          <h2><%= @user.name %></h2>
+        </div>
+        <div class="col float-left">
+          <% if @user.id == current_user.id %>
+            <%= link_to accounts_edit_path,
+              class: "config-button btn btn-light p-1" do %>
+              <i class="fas fa-cog"></i>プロフィールを編集
+            <% end %>
+          <% else %>
+            <div id="follow-form">
+              <% if current_user.following?(@user) %>
+                <%= render 'users/unfollow' %>
+              <% else %>
+                <%= render 'users/follow' %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="display-name mb-3">
+        <%= @user.display_name %>
+      </div>
+      <div class="relations w-auto d-flex justify-content-between">
+        <div class="articles d-flex flex-column align-items-center">
+          <div class="count"><%= @user.articles.count %></div>
+          <div class="label">投稿</div>
+        </div>
+        <div class="followers d-flex flex-column align-items-center">
+          <%= form_with(url: followers_user_path(@user), method: :get) do |f| %>
+            <button class="followers-button" type="button">
+              <div class="count"><%= @user.followers.count %></div>
+              <div class="label">フォロワー</div>
+            </button>
+          <% end %>
+        </div>
+        <div class="following d-flex flex-column align-items-center">
+          <%= form_with(url: following_user_path(@user), method: :get) do |f| %>
+            <button class="following-button" type="button">
+              <div class="count"><%= @user.following.count %></div>
+              <div class="label">フォロー中</div>
+            </button>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="user-articles container-fluid">
+  <% @user.articles.each_slice(3) do |articles_chunk| %>
+    <div class="row mb-1 align-items-center">
+      <% articles_chunk.each do |article| %>
+        <div class="article col-4 pl-0 pr-1">
+          <%= form_with(url: article_path(article.id), method: :get) do |f| %>
+            <%= hidden_field_tag :id, article.id %>
+            <button class="article-detail-button" type="button">
+              <%= image_tag article.picture.thumb.url, class: "img-fluid" %>
+            </button>
+          <% end %>
+        </div>
+
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<%= render 'shared/article_detail_modal' %>

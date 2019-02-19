@@ -32,3 +32,7 @@
 
 /vendor/*
 !/vendor/.keep
+/public/uploads/*
+.DS_Store
+/config/accessKeys.csv
+*.env

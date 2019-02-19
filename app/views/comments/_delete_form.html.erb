@@ -1,0 +1,7 @@
+<%= form_with(url: comment_path(comment.id), id: "comment-delete-#{comment.id}",
+      method: :delete) do |f| %>
+  <%= hidden_field_tag :article_id, comment.article.id %>
+  <%= button_tag(class: "comment-delete-button px-3", type: "button") do %>
+    <i class="fas fa-times"></i>
+  <% end %>
+<% end %>

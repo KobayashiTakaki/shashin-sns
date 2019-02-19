@@ -1,0 +1,6 @@
+<%= form_with(model: current_user.active_relationships.find_by(followee_id: @user.id),
+    method: :delete) do |f| %>
+  <%= button_tag(type: "submit", class: "unfollow-button btn p-2") do %>
+    <i class="fas fa-lg fa-user-minus pr-2"></i>フォローをやめる
+  <% end %>
+<% end %>

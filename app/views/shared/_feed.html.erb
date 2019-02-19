@@ -1,0 +1,13 @@
+<div id="feed-items" class="container-fluid px-0">
+  <div class="col-lg-8 col-md-9 mx-auto px-0">
+    <% if current_user.following.empty? %>
+      <div class="alert alert-light" role="alert">
+        ユーザーをフォローしてみましょう！
+      </div>
+    <% end %>
+    <% if @feed_items.any? %>
+      <%= render @feed_items %>
+    <% end %>
+    <%= paginate @feed_items %>
+  </div>
+</div>

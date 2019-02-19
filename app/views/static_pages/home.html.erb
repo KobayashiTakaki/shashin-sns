@@ -1,0 +1,8 @@
+<% if user_signed_in? %>
+  <%= link_to new_article_path, id: "new-article" do %>
+     <i class="fas fa-plus fa-2x"></i>
+  <% end %>
+  <%= render 'shared/feed' %>
+<% else %>
+  <%= render 'static_pages/landing' %>
+<% end %>

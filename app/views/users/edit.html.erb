@@ -1,0 +1,33 @@
+<% content_for(:page_title, 'アカウント設定') %>
+<h1>アカウント設定</h1>
+<div class="mb-4">
+  <%= form_for(@user, url: user_path(@user.id), method: :patch) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="form-group">
+      <%= f.label :name, "アカウント名" %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :display_name, "プロフィールに表示する名前" %>
+      <%= f.text_field :display_name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :picture, "プロフィール画像" %>
+      <%= image_tag @user.picture.thumb.url, class: "img-fluid" %>
+      <%= f.check_box :remove_picture %>プロフィール画像を削除
+      <%= f.file_field :picture, accept: 'image/jpeg,image/png',
+        class: "form-control-file"%>
+    </div>
+    <div class="form-group">
+      <%= f.label :email, "メールアドレス" %>
+      <%= f.text_field :email, class: 'form-control' %>
+    </div>
+
+    <%= f.submit "保存", class: "btn btn-primary" %>
+  <% end %>
+</div>
+<div class="account-delete-form">
+  <%= form_for @user, method: :delete do |f| %>
+    <%= f.submit "アカウントを削除", class: "btn btn-danger" %>
+  <% end %>
+</div>

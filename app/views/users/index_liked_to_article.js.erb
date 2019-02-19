@@ -1,0 +1,6 @@
+if($("#article-detail").length == 0){
+  $("#users-modal #users-modal-label").text('＼＼いいね！／／');
+  $("#users-modal .user-list").html("<%= escape_javascript(render(@users)) %>");
+} else {
+  $("#article-detail .user-list").html("<%= escape_javascript(render(@users)) %>");
+}

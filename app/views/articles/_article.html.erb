@@ -1,0 +1,33 @@
+<div id="article-<%= article.id %>" class="article">
+  <div class="user-info col p-2">
+    <%= link_to "/#{article.user.name}" do %>
+      <div class="profile-link">
+        <%= image_tag article.user.picture.thumb.url %>
+        <span class="user-name px-2"><%= article.user.name %></span>
+      </div>
+    <% end %>
+  </div>
+  <%= image_tag article.picture.gallery.url %>
+  <div class="p-3 article-info">
+    <div class="article-menu mb-2">
+      <div id="like-form-<%= article.id %>">
+        <% if current_user.liked?(article) %>
+          <%= render 'likes/unlike', article: article %>
+        <% else %>
+          <%= render 'likes/like', article: article %>
+        <% end %>
+      </div>
+    </div>
+    <div class="likes-count mb-2">
+      <%= render 'likes/liked_by', article: article %>
+    </div>
+    <div class="created-at">
+      <%= time_ago_in_words(article.created_at) %>
+    </div>
+    <div class="comments">
+      <%= render 'comments/comments', article: article %>
+      <hr>
+      <%= render 'comments/comment_form', article: article %>
+    </div>
+  </div>
+</div>

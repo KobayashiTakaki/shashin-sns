@@ -1,0 +1,81 @@
+@import "bootstrap";
+
+$my-black: #262626;
+$border-thin: "1px solid rgba(0,0,0,0.0975)";
+$button-shadow: "2px 2px 5px rgba(0,0,0,0.2)";
+
+/* body */
+body {
+  color: $my-black;
+  background-color: #fafafa;
+  padding-top: 60px;
+  font-size: 14px;
+  ul {
+    padding: 0;
+    margin: 0;
+    li {
+      list-style: none;
+    }
+  }
+
+  a.btn {
+    text-decoration: none;
+  }
+}
+
+/* header */
+#top-nav {
+  border-bottom: #{$border-thin};
+}
+
+/* new-article button */
+#new-article {
+  position: fixed;
+  z-index: 2;
+  right: 50px;
+  bottom: 50px;
+  margin: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 3px solid $my-black;
+  text-shadow: #{$button-shadow};
+  box-shadow: #{$button-shadow};
+  color: $my-black;
+  text-decoration: none;
+  text-align:center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* feed */
+#feed-items {
+  padding-top: 60px;
+}
+
+/* feed for mobile */
+@include media-breakpoint-down(xs) {
+  #feed-items {
+    padding-top: 0;
+  }
+
+  #feed-items .article {
+    margin-bottom: 15px;
+    border: none;
+    background-color: inherit;
+  }
+
+  input[id^="comment-content-"] {
+    background-color: #fafafa;
+  }
+}
+
+
+/* debug */
+.debug {
+  margin: 40px;
+  padding: 20px 10px;
+  border: #{$border-thin};
+}

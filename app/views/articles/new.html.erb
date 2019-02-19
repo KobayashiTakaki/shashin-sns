@@ -1,0 +1,11 @@
+<% content_for(:page_title, '新規投稿') %>
+<h1>新規投稿</h1>
+<div>
+  <%= form_for(@article) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <span class="picture">
+    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+    </span>
+    <%= f.submit "投稿", class: "btn btn-primary submit-button" %>
+  <% end %>
+</div>

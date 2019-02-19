@@ -1,0 +1,22 @@
+<h1>Signup</h1>
+<div class="px-3">
+  <%= form_for(@user) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <%= f.label :name, "アカウント名" %>
+    <%= f.text_field :name, class: 'form-control' %>
+
+    <%= f.label :display_name, "プロフィールに表示する名前" %>
+    <%= f.text_field :display_name, class: 'form-control' %>
+
+    <%= f.label :email, "メールアドレス" %>
+    <%= f.text_field :email, class: 'form-control' %>
+
+    <%= f.label :password, "パスワード" %>
+    <%= f.password_field :password, class: 'form-control' %>
+
+    <%= f.label :password_confirmation, "パスワード再入力" %>
+    <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+    <%= f.submit "アカウント作成", class: "btn btn-primary" %>
+  <% end %>
+</div>
