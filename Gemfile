@@ -5,8 +5,6 @@ ruby '2.5.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
-gem 'sqlite3', groups: %w(test development), require: false
-gem 'pg', groups: %w(production), require: false
 gem 'bootstrap', '~> 4.0'
 gem 'jquery-rails'
 gem 'faker'
@@ -51,6 +49,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rails-controller-testing'
   gem 'dotenv-rails'
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
 end
 
 group :development do
@@ -71,6 +71,7 @@ group :test do
 end
 
 group :production do
+  gem 'pg'
   gem 'fog'
   gem "fog-aws"
 end
