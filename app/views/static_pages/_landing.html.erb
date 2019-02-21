@@ -11,9 +11,16 @@
     </div>
   </div>
   <div class="links d-flex flex-column align-items-center">
-    <%= link_to user_facebook_omniauth_authorize_path,
-        class: "btn btn-facebook" do %>
+    <span>※Facebook Loginは無効化中です。</span>
+    <div class="login-link">
+      <%= link_to "#", class: "btn-facebook" do %>
         <i class="fab fa-lg fa-facebook-square pr-2"></i>Sign in with Facebook
-    <% end %>
+      <% end %>
+    </div>
+    <div class="login-link">
+      <%= link_to login_path, class: "btn btn-login" do %>
+        Login
+      <% end %>
+    </div>
   </div>
 </div>

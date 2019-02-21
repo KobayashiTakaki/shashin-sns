@@ -1,9 +1,11 @@
-<li id="comment-<%= comment.id %>">
-  <span class="user-name mr-1"><%= comment.user.name %></span>
-  <span class="content"><%= comment.content %></span>
+<li id="comment-<%= comment.id %>" class="d-flex align-items-center">
+  <div class="flex-grow-1">
+    <span class="user-name mr-1"><%= comment.user.name %></span>
+    <span class="content"><%= comment.content %></span>
+  </div>
   <% if current_user == comment.user %>
-    <span class="float-right">
+    <div class="float-right">
       <%= render 'comments/delete_form', comment: comment %>
-    </span>
+    </div>
   <% end %>
 </li>
